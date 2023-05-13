@@ -43,6 +43,8 @@ module.exports = {
 
 ### Adatbázis beállítása
 
+A config könyvtárban találunk egy config.json.example állományt. Készítsünk róla másolatot config.json néven. Állítsuk be az adatbázis elérést, például:
+
 ```javascript
 {
 
@@ -56,10 +58,16 @@ module.exports = {
 }
 ```
 
+A packages.json fájlban be van állítva, a production mód. Nélküle development módban vagyunk. A választott módban állítsuk be az adatbázist. 
+
+MariaDB esetén szükség van a mariadb NodeJS csomagra, a MySQL esetén a mysql2 csomagra, SQLite esetén a sqlite3 csomagra.
+
+Ha telepítettük a megfelelő csomagotkat, és beállítottuk az adatbázist jöhet a migráció.
+
 Kezdjük el a migrációt, ami létrehozza az adatbázis tábláit:
 
 ```cmd
-npx sequelize db:migrate
+npm run migrate
 ```
 
 ### A szerver indítása
