@@ -4,7 +4,9 @@
 
 A következő parancsokra van szükség a beüzemeléshez:
 
-* npm
+* git
+* npm vagy pnpm
+* code
 
 ## Beüzemelés
 
@@ -58,7 +60,16 @@ A config könyvtárban találunk egy config.json.example állományt. Készíts�
 }
 ```
 
-A packages.json fájlban be van állítva, a production mód. Nélküle development módban vagyunk. A választott módban állítsuk be az adatbázist. 
+A packages.json fájlban be van állítva, a production mód. Nélküle development módban vagyunk. A package.json fájl tartalma:
+
+```json
+  "scripts": {
+    "start": "env NODE_ENV=production nodemon server.js",
+    "migrate": "env NODE_ENV=production npx sequelize db:migrate"
+  },
+```
+
+A választott módban állítsuk be az adatbázist.
 
 MariaDB esetén szükség van a mariadb NodeJS csomagra, a MySQL esetén a mysql2 csomagra, SQLite esetén a sqlite3 csomagra.
 
@@ -135,7 +146,7 @@ Végpont:
 
 | Végpont | Metódus | Azonosítása |
 |-|-|-|
-| api/employees | POST | igen |
+| /api/employees | POST | igen |
 
 POST metódust használunk a következő módon:
 
@@ -161,7 +172,7 @@ Végpont:
 
 | Végpont | Metódus | Azonosítása |
 |-|-|-|
-| api/employees/1 | PUT | igen |
+| /api/employees/1 | PUT | igen |
 
 A végpontnak paraméterként kell megadni, melyik dolgozó adatait szeretnénk változtatni. Az 1 csak egy példa. Át kell írni a megfelelő dolgozó azonosítójára.
 
@@ -181,6 +192,6 @@ Végpont:
 
 | Végpont | Metódus | Azonosítása |
 |-|-|-|
-| api/employees/1 | DELETE | igen |
+| /api/employees/1 | DELETE | igen |
 
 A példában a 1-s azonosítójú dolgozót töröljük. Javítsuk a megfelelőre.
