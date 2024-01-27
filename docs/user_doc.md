@@ -81,6 +81,10 @@ Kezdjük el a migrációt, ami létrehozza az adatbázis tábláit:
 npm run migrate
 ```
 
+### Adatbázis minta másolása
+
+Találunk egy minta adatbázist a projekt gyökérkönyvtárában database.sqlite.example néven. Készítsünk róla másolatot database.sqlite néven.
+
 ### A szerver indítása
 
 ```cmd
@@ -129,7 +133,7 @@ Visszakapunk egy tokent és egy nevet. Például:
 {
     "id": 6,
     "name": "janos",
-    "emaiil": "janos@zold.lan",    
+    "email": "janos@zold.lan",    
     "accessToken": "34ZqaQhOT3t5fjEgxYsKC1SwrfJHw63REalXD921",
 }
 ```
