@@ -5,7 +5,8 @@ module.exports = app => {
     const { verifyToken } = require('../app/middleware/authjwt');
 
     router.get('/employees',  employees.index);
-    router.post('/employees', [verifyToken], employees.store);
+    // router.post('/employees', [verifyToken], employees.store);
+    router.post('/employees', employees.store);
     router.delete('/employees/:id', [verifyToken], employees.destroy);
     router.put('/employees/:id', [verifyToken], employees.update);
  
